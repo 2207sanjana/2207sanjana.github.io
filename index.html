@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sanjana Banala — Electrical & Communication Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0D0D0D;
+  --bg2:#141414;
+  --bg3:#1A1A1A;
+  --card:#1E1E1E;
+  --border:#2A2A2A;
+  --text:#F0EDE8;
+  --text2:#A09A94;
+  --text3:#5C5752;
+  --gold:#C9A84C;
+  --gold2:#E8C97A;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none}
+
+.cursor{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s}
+.cursor-ring{width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s ease;opacity:0.5}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:1000;opacity:0.35
+}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.5rem 5rem;
+  background:rgba(13,13,13,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--text);text-decoration:none;letter-spacing:0.02em}
+.nav-logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 5rem 5rem;position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.4}
+.hero-glow{position:absolute;top:20%;right:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:960px}
+.hero-eyebrow{display:flex;align-items:center;gap:1rem;font-size:0.75rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.hero-eyebrow::after{content:'';flex:0 0 40px;height:1px;background:var(--gold)}
+h1.hero-name{font-family:'Playfair Display',serif;font-size:clamp(4rem,9vw,8rem);line-height:0.92;letter-spacing:-0.03em;color:var(--text);margin-bottom:0.15em}
+h1.hero-name .italic{font-style:italic;color:var(--gold2)}
+.hero-tagline{font-size:clamp(1rem,2vw,1.2rem);color:var(--text2);font-weight:300;line-height:1.7;max-width:620px;margin:2rem 0 3rem}
+.hero-actions{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:4rem}
+.btn-gold{display:inline-flex;align-items:center;gap:0.6rem;background:var(--gold);color:var(--bg);padding:0.85rem 2rem;font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.2s,transform 0.15s;cursor:none}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:0.6rem;border:1px solid var(--border);color:var(--text2);padding:0.85rem 2rem;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.15s;cursor:none}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:4rem;padding-top:3rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--gold);font-style:italic}
+.hero-stat-label{font-size:0.78rem;color:var(--text3);letter-spacing:0.06em;margin-top:0.2rem}
+
+/* SECTIONS */
+section{padding:7rem 5rem}
+.sec-label{display:flex;align-items:center;gap:1.25rem;margin-bottom:4rem}
+.sec-num{font-family:'Playfair Display',serif;font-size:0.85rem;color:var(--text3);font-style:italic}
+.sec-title{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--text);letter-spacing:-0.02em}
+.sec-line{flex:1;height:1px;background:var(--border)}
+
+/* ABOUT */
+.about{background:var(--bg2);border-top:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:7rem;align-items:start}
+.about-text p{font-size:1rem;color:var(--text2);line-height:1.9;font-weight:300;margin-bottom:1.5rem}
+.about-text p strong{color:var(--text);font-weight:500}
+.about-text p em{color:var(--gold);font-style:normal}
+.about-cards{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.about-card{background:var(--card);padding:1.5rem 1.75rem;transition:background 0.2s}
+.about-card:hover{background:var(--bg3)}
+.about-card-label{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.about-card-val{font-size:0.88rem;color:var(--text2);line-height:1.6;font-weight:300}
+
+/* SKILLS — DOMAIN TABS */
+.skills{background:var(--bg)}
+.domain-tabs{display:flex;gap:0;margin-bottom:1px;background:var(--border)}
+.dtab{
+  flex:1;padding:1rem 1.5rem;
+  background:var(--bg);border:none;
+  font-family:'Outfit',sans-serif;
+  font-size:0.75rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text3);cursor:none;
+  transition:background 0.2s,color 0.2s;
+  border-bottom:2px solid transparent;
+}
+.dtab.active{background:var(--bg2);color:var(--gold);border-bottom-color:var(--gold)}
+.dtab:hover:not(.active){background:var(--bg3);color:var(--text2)}
+.domain-panel{display:none;background:var(--border);gap:1px}
+.domain-panel.active{display:grid;grid-template-columns:repeat(3,1fr)}
+.skill-card{background:var(--bg2);padding:2.25rem;position:relative;overflow:hidden;transition:background 0.25s}
+.skill-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.3s ease}
+.skill-card:hover{background:var(--card)}
+.skill-card:hover::before{height:100%}
+.skill-cat{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+.skill-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);margin-bottom:0.6rem}
+.skill-items{font-size:0.85rem;color:var(--text2);line-height:1.9;font-weight:300}
+
+/* EXPERIENCE */
+.experience{background:var(--bg2);border-top:1px solid var(--border)}
+.exp-block{display:grid;grid-template-columns:220px 1fr;gap:5rem;padding:3.5rem 0;border-bottom:1px solid var(--border)}
+.exp-block:last-child{border-bottom:none;padding-bottom:0}
+.exp-date{font-size:0.75rem;color:var(--text3);letter-spacing:0.06em;margin-bottom:0.75rem}
+.exp-co{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text);margin-bottom:0.25rem}
+.exp-place{font-size:0.78rem;color:var(--text3)}
+.exp-role{font-size:0.88rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.exp-list{list-style:none}
+.exp-list li{font-size:0.9rem;color:var(--text2);line-height:1.8;font-weight:300;padding:0.3rem 0 0.3rem 1.5rem;position:relative}
+.exp-list li::before{content:'◆';position:absolute;left:0;color:var(--gold);font-size:0.45rem;top:0.72rem}
+
+/* PROJECTS */
+.projects{background:var(--bg);border-top:1px solid var(--border)}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.proj-card{background:var(--bg);padding:2.75rem;text-decoration:none;display:block;position:relative;overflow:hidden;transition:background 0.25s}
+.proj-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease}
+.proj-card:hover{background:var(--bg2)}
+.proj-card:hover::after{transform:scaleX(1)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem}
+.proj-idx{font-family:'Playfair Display',serif;font-size:2rem;color:var(--border);font-style:italic;line-height:1}
+.proj-arrow{font-size:1.3rem;color:var(--text3);transition:transform 0.2s,color 0.2s}
+.proj-card:hover .proj-arrow{transform:translate(4px,-4px);color:var(--gold)}
+.proj-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--text);margin-bottom:0.75rem;letter-spacing:-0.01em}
+.proj-desc{font-size:0.87rem;color:var(--text2);line-height:1.75;font-weight:300;margin-bottom:1.5rem}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.ptag{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.25);padding:0.2rem 0.65rem}
+
+/* EDUCATION */
+.education{background:var(--bg2);border-top:1px solid var(--border)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:4rem}
+.edu-card{background:var(--bg2);padding:2.5rem;transition:background 0.2s}
+.edu-card:hover{background:var(--card)}
+.edu-year{font-size:0.72rem;color:var(--text3);letter-spacing:0.08em;margin-bottom:1rem}
+.edu-deg{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--text);line-height:1.35;margin-bottom:0.4rem}
+.edu-school{font-size:0.88rem;color:var(--gold);font-weight:500;margin-bottom:0.2rem}
+.edu-loc{font-size:0.78rem;color:var(--text3)}
+.extra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.extra-card{background:var(--bg2);padding:2rem;transition:background 0.2s}
+.extra-card:hover{background:var(--card)}
+.extra-icon{font-size:1.5rem;margin-bottom:1rem}
+.extra-title{font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.35rem}
+.extra-sub{font-size:0.8rem;color:var(--text2);line-height:1.6;font-weight:300}
+
+/* CONTACT */
+.contact{background:var(--bg);border-top:1px solid var(--border);text-align:center;padding:8rem 5rem}
+.contact-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--text);margin-bottom:1rem;letter-spacing:-0.02em}
+.contact-title em{color:var(--gold);font-style:italic}
+.contact-sub{font-size:1rem;color:var(--text2);font-weight:300;max-width:520px;margin:0 auto 3rem;line-height:1.7}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.c-link{display:inline-flex;align-items:center;gap:0.6rem;border:1px solid var(--border);color:var(--text2);padding:0.85rem 1.75rem;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.15s;cursor:none}
+.c-link:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+footer{background:var(--bg2);border-top:1px solid var(--border);text-align:center;padding:1.75rem 5rem;font-size:0.75rem;color:var(--text3);letter-spacing:0.06em}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.75s ease,transform 0.75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+@media(max-width:900px){
+  nav{padding:1.25rem 1.5rem}
+  .nav-links{display:none}
+  .hero{padding:7rem 1.5rem 4rem}
+  section{padding:4rem 1.5rem}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .domain-panel.active{grid-template-columns:1fr 1fr}
+  .exp-block{grid-template-columns:1fr;gap:1rem}
+  .projects-grid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .extra-grid{grid-template-columns:1fr}
+  .hero-stats{gap:2rem}
+  .contact{padding:4rem 1.5rem}
+  .domain-tabs{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="#" class="nav-logo">Sanjana <span>Banala</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">Electrical · Communication · Embedded · FPGA · IoT</div>
+    <h1 class="hero-name reveal reveal-delay-1">Banala<br/><span class="italic">Sanjana</span></h1>
+    <p class="hero-tagline reveal reveal-delay-2">
+      Master's student in Electrical Communication Engineering at the University of Kassel.
+      Experienced in automotive software, digital hardware design, embedded systems, and IoT.
+      Passionate about building things that work in the real world — from FPGA logic to Arduino robots.
+    </p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#projects" class="btn-gold">View Projects ↓</a>
+      <a href="mailto:banalasanjanareddy2207@gmail.com" class="btn-outline">Get in Touch →</a>
+      <a href="https://github.com/2207sanjana" target="_blank" class="btn-outline">GitHub ↗</a>
+    </div>
+    <div class="hero-stats reveal reveal-delay-3">
+      <div>
+        <div class="hero-stat-num">1+</div>
+        <div class="hero-stat-label">Year industry experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">Projects on GitHub</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">C2</div>
+        <div class="hero-stat-label">English proficiency</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">B1</div>
+        <div class="hero-stat-label">German proficiency</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="sec-label reveal">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">About</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm an engineer from <strong>Hyderabad, India</strong>, now based in <em>Kassel, Germany</em> pursuing my Master's in Electrical Communication Engineering. My interests span the full ECE landscape — from writing low-level embedded C to designing digital circuits in Verilog on FPGA hardware.</p>
+      <p>Before starting my Master's, I spent a year at <strong>PeopleTech Group</strong> on a <strong>General Motors</strong> project — developing C and C++ software for automotive display systems, working in a safety-critical environment with tools like Qt Creator and IBM Rhapsody.</p>
+      <p>I've also participated in two <strong>Erasmus+ Youth Exchange</strong> programmes across Europe, which sharpened my cross-cultural communication and teamwork skills significantly.</p>
+      <p>I'm currently <em>open to Werkstudent, internship, or entry-level opportunities</em> in Germany across embedded systems, electronics engineering, telecommunications, IoT, or automotive software.</p>
+    </div>
+    <div class="about-cards reveal reveal-delay-1">
+      <div class="about-card">
+        <div class="about-card-label">Currently</div>
+        <div class="about-card-val">M.Sc. Electrical Communication Engineering<br/>University of Kassel, Germany</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Previously</div>
+        <div class="about-card-val">Junior Software Engineer<br/>PeopleTech Group (GM project), Hyderabad</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Languages</div>
+        <div class="about-card-val">English (C2) · German (B1) · Telugu (native)</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Open to</div>
+        <div class="about-card-val">Embedded · Automotive · Telecom · IoT · FPGA · Electronics</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">Portfolio</div>
+        <div class="about-card-val">2207sanjana.github.io</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS with domain tabs -->
+<section class="skills" id="skills">
+  <div class="sec-label reveal">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">Skills</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="reveal">
+    <div class="domain-tabs">
+      <button class="dtab active" onclick="switchTab(this,'tab-programming')">Programming</button>
+      <button class="dtab" onclick="switchTab(this,'tab-embedded')">Embedded & IoT</button>
+      <button class="dtab" onclick="switchTab(this,'tab-hardware')">Hardware & FPGA</button>
+      <button class="dtab" onclick="switchTab(this,'tab-tools')">Tools & Software</button>
+      <button class="dtab" onclick="switchTab(this,'tab-soft')">Soft Skills</button>
+    </div>
+
+    <div id="tab-programming" class="domain-panel active">
+      <div class="skill-card">
+        <div class="skill-cat">Core</div>
+        <div class="skill-name">C / C++</div>
+        <div class="skill-items">Embedded C · System programming<br/>Automotive software · Safety-critical code<br/>1 year professional use (GM project)</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Scripting</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-items">CLI tools · Automation scripts<br/>Data processing · Signal encoding<br/>Open source project on GitHub</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Hardware Description</div>
+        <div class="skill-name">Verilog HDL</div>
+        <div class="skill-items">Digital logic design<br/>RTL coding · Simulation<br/>FPGA synthesis with Vivado</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Modelling</div>
+        <div class="skill-name">MATLAB / Simulink</div>
+        <div class="skill-items">Signal modelling<br/>System simulation<br/>ECE coursework & projects</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Web</div>
+        <div class="skill-name">HTML / CSS</div>
+        <div class="skill-items">Static web pages<br/>Portfolio design<br/>GitHub Pages hosting</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Documentation</div>
+        <div class="skill-name">LaTeX</div>
+        <div class="skill-items">Technical reports<br/>Academic writing<br/>Structured documentation</div>
+      </div>
+    </div>
+
+    <div id="tab-embedded" class="domain-panel">
+      <div class="skill-card">
+        <div class="skill-cat">Microcontrollers</div>
+        <div class="skill-name">Arduino</div>
+        <div class="skill-items">Sensor interfacing · Motor control<br/>Relay control · Bluetooth modules<br/>3 hardware projects built</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Operating Systems</div>
+        <div class="skill-name">RTOS</div>
+        <div class="skill-items">Automotive RTOS concepts<br/>Task scheduling awareness<br/>Real-time system integration (GM)</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Connectivity</div>
+        <div class="skill-name">IoT & Wireless</div>
+        <div class="skill-items">Bluetooth (HC-05)<br/>Sensor networks<br/>IoT system design</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Interfaces</div>
+        <div class="skill-name">Sensors & Actuators</div>
+        <div class="skill-items">Flame sensors · Flex sensors<br/>DC motors · Pumps · Relays<br/>Analog & digital signal reading</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Process</div>
+        <div class="skill-name">Debugging</div>
+        <div class="skill-items">Low-level hardware debugging<br/>Logic analysis · Signal tracing<br/>HW-SW integration testing</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Automotive</div>
+        <div class="skill-name">Display Systems</div>
+        <div class="skill-items">In-vehicle HMI software<br/>Qt Creator · IBM Rhapsody<br/>Safety-critical testing</div>
+      </div>
+    </div>
+
+    <div id="tab-hardware" class="domain-panel">
+      <div class="skill-card">
+        <div class="skill-cat">FPGA Platform</div>
+        <div class="skill-name">Xilinx Vivado</div>
+        <div class="skill-items">Synthesis & implementation<br/>Simulation & timing analysis<br/>EVM project completed</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Design</div>
+        <div class="skill-name">Digital Logic</div>
+        <div class="skill-items">Combinational circuits<br/>Sequential logic · FSMs<br/>RTL design methodology</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Lab Skills</div>
+        <div class="skill-name">Measurement Tools</div>
+        <div class="skill-items">Oscilloscope · Multimeter<br/>Signal probing<br/>Lab measurement techniques</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">PCB</div>
+        <div class="skill-name">Circuit Analysis</div>
+        <div class="skill-items">PCB inspection<br/>Component identification<br/>Circuit fault analysis</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Prototyping</div>
+        <div class="skill-name">Hardware Build</div>
+        <div class="skill-items">Breadboard prototyping<br/>Component wiring<br/>3 physical projects assembled</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Simulation</div>
+        <div class="skill-name">HDL Simulation</div>
+        <div class="skill-items">Testbench writing<br/>Waveform analysis<br/>Functional verification</div>
+      </div>
+    </div>
+
+    <div id="tab-tools" class="domain-panel">
+      <div class="skill-card">
+        <div class="skill-cat">IDE</div>
+        <div class="skill-name">Qt Creator</div>
+        <div class="skill-items">UI development<br/>C++ application design<br/>Used on GM automotive project</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Modelling</div>
+        <div class="skill-name">IBM Rhapsody</div>
+        <div class="skill-items">Model-driven development<br/>UML state machines<br/>Automotive system design</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Version Control</div>
+        <div class="skill-name">Git & GitHub</div>
+        <div class="skill-items">Repository management<br/>Commit history · READMEs<br/>4 public repos maintained</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Editor</div>
+        <div class="skill-name">VS Code</div>
+        <div class="skill-items">Daily development tool<br/>Python · C · Web projects<br/>Extensions & workflow</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Networking</div>
+        <div class="skill-name">Cisco Certified</div>
+        <div class="skill-items">Intro to Cybersecurity<br/>Cybersecurity Essentials<br/>CCNA: Intro to Networks</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Docs</div>
+        <div class="skill-name">Technical Writing</div>
+        <div class="skill-items">LaTeX reports<br/>GitHub READMEs<br/>Project documentation</div>
+      </div>
+    </div>
+
+    <div id="tab-soft" class="domain-panel">
+      <div class="skill-card">
+        <div class="skill-cat">Communication</div>
+        <div class="skill-name">Public Speaking</div>
+        <div class="skill-items">Presentations & demos<br/>Cross-cultural communication<br/>Erasmus+ exchange experience</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Teamwork</div>
+        <div class="skill-name">Collaboration</div>
+        <div class="skill-items">Cross-functional team (GM)<br/>Agile code reviews<br/>International group projects</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Thinking</div>
+        <div class="skill-name">Problem Solving</div>
+        <div class="skill-items">Systematic debugging<br/>Root cause analysis<br/>Critical & analytical thinking</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Work Style</div>
+        <div class="skill-name">Adaptability</div>
+        <div class="skill-items">Relocated internationally<br/>Navigated new environments<br/>Fast learner in new tech stacks</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Organisation</div>
+        <div class="skill-name">Time Management</div>
+        <div class="skill-items">Parallel study + work<br/>Deadline-driven delivery<br/>Self-directed learner</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Leadership</div>
+        <div class="skill-name">Initiative</div>
+        <div class="skill-items">Recognised by GM mentor<br/>Theme Ballet Club (VCE)<br/>Erasmus+ project participant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="sec-label reveal">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">Experience</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="exp-block reveal">
+    <div class="exp-side">
+      <div class="exp-date">Jan 2024 – Jan 2025</div>
+      <div class="exp-co">PeopleTech Group</div>
+      <div class="exp-place">Hyderabad, India<br/>General Motors project</div>
+    </div>
+    <div class="exp-main">
+      <div class="exp-role">Junior Software Engineer</div>
+      <ul class="exp-list">
+        <li>Developed embedded software for automotive display systems in C and C++ under the GM development cycle</li>
+        <li>Collaborated with a cross-functional team to build an in-vehicle infotainment display operating system</li>
+        <li>Contributed to code reviews and resolved hardware-software integration issues across multiple modules</li>
+        <li>Worked in a safety-critical environment with exposure to automotive software standards and processes</li>
+        <li>Used Qt Creator, IBM Rhapsody, and Visual Studio Code as primary development and modelling tools</li>
+        <li>Recognised by project mentor for consistent contributions to debugging and UI optimisation tasks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="sec-label reveal">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">Projects</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="projects-grid">
+    <a class="proj-card reveal" href="https://github.com/2207sanjana/fire-fighting-robot" target="_blank">
+      <div class="proj-top"><span class="proj-idx">01</span><span class="proj-arrow">↗</span></div>
+      <div class="proj-title">Fire Fighting Robot</div>
+      <div class="proj-desc">Autonomous robot detecting fire via three flame sensors and navigating toward the source using differential motor control, activating a relay-driven pump to extinguish it.</div>
+      <div class="proj-tags"><span class="ptag">Arduino</span><span class="ptag">Embedded C</span><span class="ptag">IoT</span><span class="ptag">Sensors</span><span class="ptag">Motor Control</span></div>
+    </a>
+    <a class="proj-card reveal reveal-delay-1" href="https://github.com/2207sanjana/gesture-vocaliser" target="_blank">
+      <div class="proj-top"><span class="proj-idx">02</span><span class="proj-arrow">↗</span></div>
+      <div class="proj-title">Gesture Vocalizer</div>
+      <div class="proj-desc">Electronic glove translating sign language into speech. Flex sensors on each finger detect hand positions; patterns are matched and output via Bluetooth HC-05 to a speech terminal.</div>
+      <div class="proj-tags"><span class="ptag">Arduino</span><span class="ptag">Bluetooth</span><span class="ptag">IoT</span><span class="ptag">Accessibility</span><span class="ptag">Signal Processing</span></div>
+    </a>
+    <a class="proj-card reveal" href="https://github.com/2207sanjana/EVM-Verilog" target="_blank">
+      <div class="proj-top"><span class="proj-idx">03</span><span class="proj-arrow">↗</span></div>
+      <div class="proj-title">EVM Using Verilog</div>
+      <div class="proj-desc">Hardware-level Electronic Voting Machine in Verilog HDL synthesised on FPGA. Includes vote counting logic, 7-segment display output, and a lock mechanism to prevent duplicate votes.</div>
+      <div class="proj-tags"><span class="ptag">Verilog HDL</span><span class="ptag">FPGA</span><span class="ptag">Vivado</span><span class="ptag">Digital Logic</span><span class="ptag">RTL Design</span></div>
+    </a>
+    <a class="proj-card reveal reveal-delay-1" href="https://github.com/2207sanjana/morse-code-converter" target="_blank">
+      <div class="proj-top"><span class="proj-idx">04</span><span class="proj-arrow">↗</span></div>
+      <div class="proj-title">Morse Code Converter</div>
+      <div class="proj-desc">Python CLI tool converting text to Morse code and back. Full A–Z, 0–9, punctuation support, demo mode, and reference table. Connects to signal encoding fundamentals from ECE background.</div>
+      <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">CLI</span><span class="ptag">Signal Encoding</span><span class="ptag">Open Source</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <div class="sec-label reveal">
+    <span class="sec-num">05</span>
+    <h2 class="sec-title">Education</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="edu-year">Current</div>
+      <div class="edu-deg">M.Sc. Electrical Communication Engineering</div>
+      <div class="edu-school">University of Kassel</div>
+      <div class="edu-loc">Kassel, Germany</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">July 2021 – June 2024</div>
+      <div class="edu-deg">B.E. Electronics & Communication Engineering</div>
+      <div class="edu-school">Vasavi College of Engineering</div>
+      <div class="edu-loc">Hyderabad, India</div>
+    </div>
+  </div>
+
+  <div class="sec-label reveal" style="margin-top:4rem">
+    <span class="sec-num">06</span>
+    <h2 class="sec-title" style="font-size:1.8rem">Extracurricular</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="extra-grid reveal">
+    <div class="extra-card">
+      <div class="extra-icon">🌍</div>
+      <div class="extra-title">Erasmus+ Youth Exchange</div>
+      <div class="extra-sub">"Voices of Europe: Youth for Democracy and Inclusion"<br/>Figueira da Foz, Portugal</div>
+    </div>
+    <div class="extra-card">
+      <div class="extra-icon">📵</div>
+      <div class="extra-title">Erasmus+ Youth Exchange</div>
+      <div class="extra-sub">"ANOKI – Digital Detox"<br/>Geldern, Germany</div>
+    </div>
+    <div class="extra-card">
+      <div class="extra-icon">🩰</div>
+      <div class="extra-title">Theme Ballet Club, VCE</div>
+      <div class="extra-sub">Active member<br/>June 2022 – May 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="contact-title reveal">Let's <em>connect</em></h2>
+  <p class="contact-sub reveal">
+    Currently seeking Werkstudent, internship, or entry-level roles in Germany — across embedded systems, telecommunications, electronics engineering, IoT, or automotive software.
+  </p>
+  <div class="contact-links reveal">
+    <a class="c-link" href="mailto:banalasanjanareddy2207@gmail.com">✉ Email</a>
+    <a class="c-link" href="https://github.com/2207sanjana" target="_blank">⌥ GitHub</a>
+    <a class="c-link" href="https://linkedin.com/in/your-linkedin" target="_blank">in LinkedIn</a>
+    <a class="c-link" href="tel:+4915755862026">✆ +49 15755862026</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Sanjana Banala &nbsp;·&nbsp; Electrical Communication Engineer &nbsp;·&nbsp; Kassel, Germany &nbsp;·&nbsp; 2207sanjana.github.io
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; }, 80);
+});
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => { ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='var(--gold2)';ring.style.opacity='0.8'; });
+  el.addEventListener('mouseleave', () => { ring.style.width='32px';ring.style.height='32px';ring.style.borderColor='var(--gold)';ring.style.opacity='0.5'; });
+});
+
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.dtab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.domain-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i*60); });
+}, {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('.hero .reveal').forEach((el,i) => {
+  setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+});
+</script>
+</body>
+</html>
